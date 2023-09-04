@@ -75,7 +75,7 @@ response snippet from `https://echo360.net.au/section/{section_id}/syllabus`:
                 "endTimeUTC": "2023-07-23T23:00:00.000Z"
             },
             "type": "SyllabusLessonType"
-        },
+        }
 }
 ```
 
@@ -117,4 +117,44 @@ response snippet from `https://echo360.net.au/user/enrollments`:
 }
 ```
 
-https://echo360.net.au/media/{media_id}/transcription/latest
+response snippet from `https://echo360.net.au/media/{media_id}/transcription/latest`:
+```json
+{
+    "status": "ok",
+    "message": "",
+    "data": [
+			"{
+				\"cues\":[
+					{
+						\"start\":2790,
+						\"end\":10649,
+						\"content\":\"Okay, good afternoon, everyone. Let's get started just ticking my audio for zoom, cause I had a small issue here. Can you guys hear me on zoom.\",
+						\"title\":\"1\",
+						\"notes\":[],
+						\"speaker\":\"Chamith Wijenayake - ITEE plan convener for Electrical & Computer Eng\",
+						\"rightToLeft\":false
+					},
+					{
+						\"start\":12160,
+						\"end\":20670,
+						\"content\":\"Alright. Thank you. Okay. So let's start with the lecture for today. We continue our discussion on\",
+						\"title\":\"2\",
+						\"notes\":[],
+						\"speaker\":\"Chamith Wijenayake - ITEE plan convener for Electrical & Computer Eng\",
+						\"rightToLeft\":false
+					},
+					{
+						\"start\":21320,
+						\"end\":32409,
+						\"content\":\"details about the microprocessor. Right? Details about the CPU. That's what we started last time we talked about the ALU, the arithmetic and logic unit.\",
+						\"title\":\"3\",
+						\"notes\":[],
+						\"speaker\":\"Chamith Wijenayake - ITEE plan convener for Electrical & Computer Eng\",
+						\"rightToLeft\":false
+					}
+				],
+				\"notes\":[]
+			}"
+		]
+}
+```
