@@ -158,3 +158,4 @@ response snippet from `https://echo360.net.au/media/{media_id}/transcription/lat
 		]
 }
 ```
+`JSON.parse(response.data)` will yield formatted fields as necessary
