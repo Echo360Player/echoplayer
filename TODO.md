@@ -1,9 +1,0 @@
-- features of http requests
-  - heartbeat
-  - 3 distinct filestreams (.m4s container)
-    - audio  (MPEG AAC Audio (mp4a))
-    - videoA (H264 - MPEG-4 AVC (part 10) (avc1))
-    - videoB (H264 - MPEG-4 AVC (part 10) (avc1))
-  - subtitles on pageload
-    - .vtt format (can be played in VLC)
-    - 
