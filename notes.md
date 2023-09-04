@@ -1,9 +1,10 @@
-possible P2P sharing of files once downloaded?
-fin player to facilitate playback speeds, subtitles, switching video tracks
+## Features I'd like to implement
+- possible P2P sharing of files once downloaded?
+- player to facilitate playback speeds, subtitles, switching video tracks
 
+---
 
-
-
+## Current areas of investigation
 - features of http request
   - heartbeat
   - 3 distinct filestreams (.m4s container)
@@ -14,7 +15,10 @@ fin player to facilitate playback speeds, subtitles, switching video tracks
     - .vtt format (can be played in VLC)
     - latest
 
-response snippet from `https://echo360.net.au/section/{section_id}/syllabus`:
+---
+
+## Code snippets to assist in understanding
+`https://echo360.net.au/section/{section_id}/syllabus`:
 ```json
 {
     "status": "ok",
@@ -75,11 +79,51 @@ response snippet from `https://echo360.net.au/section/{section_id}/syllabus`:
                 "endTimeUTC": "2023-07-23T23:00:00.000Z"
             },
             "type": "SyllabusLessonType"
+        },{
+            "lesson": {
+                "lesson": {
+                    "id": "aeffbd1b-782e-4bde-93e0-deb7745f8fdd",
+                    "institutionId": "60d4291f-70de-44d8-a332-d7c51983738d",
+                    "sectionId": "613781d9-6dd3-40e5-b1da-e10413835ad0",
+                    "name": "CSSE2010",
+                    "timing": {
+                        "start": "2023-08-18T09:00:00.000",
+                        "end": "2023-08-18T10:00:00.000"
+                    },
+                    "timeZone": {
+                        "id": "Australia/Brisbane",
+                        "name": "(+10:00) Australia/Brisbane",
+                        "standardOffset": "PT10H"
+                    },
+                    "fromSchedule": false,
+                    "shouldStreamLive": false,
+                    "createdAt": "2023-08-20T21:54:40.100Z",
+                    "updatedAt": "2023-08-20T23:38:26.758Z",
+                    "displayName": "CSSE2010",
+                    "lessonHasName": true
+                },
+                "medias": [],
+                "userSectionRole": "Student",
+                "questionCount": 0,
+                "isScheduled": false,
+                "hasContent": false,
+                "hasVideo": false,
+                "hasVideoHiddenDueToCaptions": false,
+                "hasSlideDeck": false,
+                "isLive": false,
+                "isInteractiveMedia": false,
+                "isPast": false,
+                "isFuture": true,
+                "is360Video": false,
+                "startTimeUTC": "2023-08-17T23:00:00.000Z",
+                "endTimeUTC": "2023-08-18T00:00:00.000Z"
+            },
+            "type": "SyllabusLessonType"
         }
 }
 ```
 
-response snippet from `https://echo360.net.au/user/enrollments`:
+`https://echo360.net.au/user/enrollments`:
 ```json
 {
     "status": "ok",
@@ -93,6 +137,14 @@ response snippet from `https://echo360.net.au/user/enrollments`:
                     "courseId": "58ce9181-167c-4f54-ad7b-fbb7eb2aacd6",
                     "courseCode": "CSSE2010",
                     "courseName": "Intro to Computer Systems",
+                    "termId": "d52dc4d9-edf8-4de0-ad12-a33bab0a54ff"
+                },{
+                    "sectionId": "fb478804-8fea-4aa3-a5aa-29b24ef633dd",
+                    "sectionName": "INFS1200_STLUC_S2_2023",
+                    "lessonCount": 13,
+                    "courseId": "fd723808-d9af-4329-9ac5-d6859d877f3f",
+                    "courseCode": "INFS1200",
+                    "courseName": "Intro to Information Systems",
                     "termId": "d52dc4d9-edf8-4de0-ad12-a33bab0a54ff"
                 }
             ],
@@ -117,45 +169,47 @@ response snippet from `https://echo360.net.au/user/enrollments`:
 }
 ```
 
-response snippet from `https://echo360.net.au/media/{media_id}/transcription/latest`:
+`https://echo360.net.au/media/{media_id}/transcription/latest`:
 ```json
 {
     "status": "ok",
     "message": "",
-    "data": [
-			"{
-				\"cues\":[
-					{
-						\"start\":2790,
-						\"end\":10649,
-						\"content\":\"Okay, good afternoon, everyone. Let's get started just ticking my audio for zoom, cause I had a small issue here. Can you guys hear me on zoom.\",
-						\"title\":\"1\",
-						\"notes\":[],
-						\"speaker\":\"Chamith Wijenayake - ITEE plan convener for Electrical & Computer Eng\",
-						\"rightToLeft\":false
-					},
-					{
-						\"start\":12160,
-						\"end\":20670,
-						\"content\":\"Alright. Thank you. Okay. So let's start with the lecture for today. We continue our discussion on\",
-						\"title\":\"2\",
-						\"notes\":[],
-						\"speaker\":\"Chamith Wijenayake - ITEE plan convener for Electrical & Computer Eng\",
-						\"rightToLeft\":false
-					},
-					{
-						\"start\":21320,
-						\"end\":32409,
-						\"content\":\"details about the microprocessor. Right? Details about the CPU. That's what we started last time we talked about the ALU, the arithmetic and logic unit.\",
-						\"title\":\"3\",
-						\"notes\":[],
-						\"speaker\":\"Chamith Wijenayake - ITEE plan convener for Electrical & Computer Eng\",
-						\"rightToLeft\":false
-					}
-				],
-				\"notes\":[]
-			}"
-		]
+    "data": ["{\"cues\":[{\"start\":2790,\"end\":10649,\"content\":\"Okay, good afternoon, everyone. Let's get started just ticking my audio for zoom, cause I had a small issue here. Can you guys hear me on zoom.\",\"title\":\"1\",\"notes\":[],\"speaker\":\"Chamith Wijenayake - ITEE plan convener for Electrical & Computer Eng\",\"rightToLeft\":false},{\"start\":12160,\"end\":20670,\"content\":\"Alright. Thank you. Okay. So let's start with the lecture for today. We continue our discussion on\",\"title\":\"2\",\"notes\":[],\"speaker\":\"Chamith Wijenayake - ITEE plan convener for Electrical & Computer Eng\",\"rightToLeft\":false},{\"start\":21320,\"end\":32409,\"content\":\"details about the microprocessor. Right? Details about the CPU. That's what we started last time we talked about the ALU, the arithmetic and logic unit.\",\"title\":\"3\",\"notes\":[],\"speaker\":\"Chamith Wijenayake - ITEE plan convener for Electrical & Computer Eng\",\"rightToLeft\":false},{\"start\":32610,\"end\":34929,\"content\":\"Today we'll talk about a little bit\",\"title\":\"4\",\"notes\":[],\"speaker\":\"Chamith Wijenayake - ITEE plan convener for Electrical & Computer Eng\",\"rightToLeft\":false}],\"notes\":[]}"]
 }
 ```
-`JSON.parse(response.data)` will yield formatted fields as necessary
+extracting data with `JSON.parse(response.data)`:
+```json
+{
+    "cues": [
+        {
+            "start": 2790,
+            "end": 10649,
+            "content": "Okay, good afternoon, everyone. Let's get started just ticking my audio for zoom, cause I had a small issue here. Can you guys hear me on zoom.",
+            "title": "1",
+            "notes": [],
+            "speaker": "Chamith Wijenayake - ITEE plan convener for Electrical & Computer Eng",
+            "rightToLeft": false
+        },
+        {
+            "start": 12160,
+            "end": 20670,
+            "content": "Alright. Thank you. Okay. So let's start with the lecture for today. We continue our discussion on",
+            "title": "2",
+            "notes": [],
+            "speaker": "Chamith Wijenayake - ITEE plan convener for Electrical & Computer Eng",
+            "rightToLeft": false
+        },
+        {
+            "start": 21320,
+            "end": 32409,
+            "content": "details about the microprocessor. Right? Details about the CPU. That's what we started last time we talked about the ALU, the arithmetic and logic unit.",
+            "title": "3",
+            "notes": [],
+            "speaker": "Chamith Wijenayake - ITEE plan convener for Electrical & Computer Eng",
+            "rightToLeft": false
+        }
+    ],
+    "notes": []
+}
+```
+\* what do the "start" and "end" numbers mean? are they specific bytes from the video stream? they can't be unix timestamps...unless?
