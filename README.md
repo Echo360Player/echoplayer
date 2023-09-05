@@ -1,30 +1,29 @@
-## Features I'd like to implement
+## Goals
+- commandline(?) interface for 
+- lightweight video player supporting variable speed, subtitles, multitrack output
 - possible P2P sharing of files once downloaded?
-- player to facilitate playback speeds, subtitles, switching video tracks
 
 ---
-
 ## Current areas of investigation
-- features of http request
-  - heartbeat
-  - 3 distinct filestreams (.m4s container)
-    - audio  (MPEG AAC Audio (mp4a))
-    - videoA (H264 - MPEG-4 AVC (part 10) (avc1))
-    - videoB (H264 - MPEG-4 AVC (part 10) (avc1))
-  - subtitles on pageload
-    - .vtt format (can be played in VLC)
-    - latest
+- RPC documents on specific topics
+  - "HTTP Live Streaming" (e.g. .m3u files) ~ https://datatracker.ietf.org/doc/html/rfc8216#autoid-3
+  - Cookies & maintaining server/user session data ~ https://datatracker.ietf.org/doc/html/rfc6265#autoid-7
+  - link relation types (URIs, URLs, URNs, etc) ~ https://datatracker.ietf.org/doc/html/rfc8288
+- audio/video/subs
+  - audio (mp4a ~ MPEG AAC Audio)
+  - video (avc1 ~ H264 - MPEG-4 AVC (part 10))
+  - subs
+    - .vtt (must have CC enabled)
+    - JSON from transcription/latest (accessible when CC disabled)
 
 ---
-
-## Code snippets to assist in understanding
+## Code snippets from various websites
 `https://echo360.net.au/section/{section_id}/syllabus`:
 ```json
 {
     "status": "ok",
     "message": "",
-    "data": [
-        {
+    "data": [{
             "lesson": {
                 "lesson": {
                     "id": "bb63dcc5-df5d-4c3c-876b-2b5ddb89b29e",
@@ -119,7 +118,7 @@
                 "endTimeUTC": "2023-08-18T00:00:00.000Z"
             },
             "type": "SyllabusLessonType"
-        }
+    }]
 }
 ```
 
