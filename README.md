@@ -15,6 +15,9 @@
   - subs
     - .vtt (must have CC enabled)
     - JSON from transcription/latest (accessible when CC disabled)
+- link formats for Echo
+  - homepage: `https://echo360.net.au/content#userIdentifier={userId}_{institutionId}`
+  - course page: `https://echo360.net.au/section/{courseId}/home`
 
 ---
 ## Code snippets from various websites
