@@ -1,14 +1,18 @@
-## Goals
-- commandline(?) interface for 
+## Main goals
+- commandline(?) interface for browsing videos on Echo
 - lightweight video player supporting variable speed, subtitles, multitrack output
+  - **REMEMBERS YOUR VIDEO PLAYBACK SETTINGS** (subs, speed, etc)
+- use 10-second thumbnails to preview which video track to download (conserving bandwidth)
+
+## Stretch goals
 - possible P2P sharing of files once downloaded?
 
 ---
 ## Current areas of investigation
 - RPC documents on specific topics
-  - "HTTP Live Streaming" (e.g. .m3u files) ~ https://datatracker.ietf.org/doc/html/rfc8216#autoid-3
+  - "HTTP Live Streaming" (enables chunk-based downloads using .m3u files) ~ https://datatracker.ietf.org/doc/html/rfc8216#autoid-3
   - Cookies & maintaining server/user session data ~ https://datatracker.ietf.org/doc/html/rfc6265#autoid-7
-  - link relation types (URIs, URLs, URNs, etc) ~ https://datatracker.ietf.org/doc/html/rfc8288
+  - types of internet links (URIs, URLs, URNs, etc) ~ https://datatracker.ietf.org/doc/html/rfc8288
 - audio/video/subs
   - audio (mp4a ~ MPEG AAC Audio)
   - video (avc1 ~ H264 - MPEG-4 AVC (part 10))
